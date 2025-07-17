@@ -1,10 +1,3 @@
-Thanks for sharing the original README content. Based on this, here's the **fully rewritten, non-plagiarized README.md** under the new project name **FlowCrafter** — keeping structure and functionality identical while ensuring the language and naming are original.
-
----
-
-### ✅ Rewritten `README.md` for **FlowCrafter**
-
-````markdown
 # FlowCrafter API
 
 FlowCrafter is a lightweight backend API built to handle custom flow-based state engines with configurable transitions, validations, and persistent state tracking.
