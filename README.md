@@ -4,20 +4,20 @@ FlowCrafter is a lightweight backend API built to handle custom flow-based state
 
 ---
 
-## 🧭 Overview
+## Overview
 
 FlowCrafter empowers clients to:
 
-- 📐 Design flow blueprints using customizable phases and transitions  
-- 🚀 Launch live flow executions from saved blueprints  
-- 🔁 Perform actions that transition between phases, with rule enforcement  
-- 🔎 Inspect and list blueprints, executions, and all related metadata  
+- Design flow blueprints using customizable phases and transitions  
+- Launch live flow executions from saved blueprints  
+- Perform actions that transition between phases, with rule enforcement  
+- Inspect and list blueprints, executions, and all related metadata  
 
 ---
 
-## 🧱 Architecture
+## Architecture
 
-### 📦 Core Entities
+### Core Entities
 
 - **BlueprintModel**: Defines the structure of a flow — phases and triggers  
 - **ExecutionTracker**: Represents a running instance of a flow  
@@ -26,7 +26,7 @@ FlowCrafter empowers clients to:
 
 ---
 
-### 🔧 Core Services
+### Core Services
 
 - **FlowLogicEngine**: Contains the main business logic for operations  
 - **BlueprintGuard**: Enforces rules and constraints on flow definitions  
@@ -34,15 +34,15 @@ FlowCrafter empowers clients to:
 
 ---
 
-## 🌐 API Endpoints
+## API Endpoints
 
-### 🔷 Blueprint Management
+### Blueprint Management
 
 - `POST /api/blueprints` – Create a new blueprint definition  
 - `GET /api/blueprints` – Retrieve all blueprint models  
 - `GET /api/blueprints/{id}` – Retrieve details of a specific blueprint  
 
-### ⚙️ Execution Management
+### Execution Management
 
 - `POST /api/executions` – Start a new instance from a blueprint  
 - `GET /api/executions` – View all current executions  
@@ -50,13 +50,13 @@ FlowCrafter empowers clients to:
 - `GET /api/executions/{id}/status` – View the current state and transition log  
 - `POST /api/executions/{id}/transition` – Perform a flow-triggered action  
 
-### 🔍 Health Monitoring
+### Health Monitoring
 
 - `GET /health` – Returns service uptime and health status  
 
 ---
 
-## ✅ Validation Rules
+## Validation Rules
 
 ### Blueprint Validation
 
@@ -75,7 +75,7 @@ FlowCrafter empowers clients to:
 
 ---
 
-## 💾 Data Persistence
+## Data Persistence
 
 The system stores data in memory and automatically backs it up as JSON files in the `/Data` directory:
 
@@ -86,7 +86,7 @@ Files are loaded at startup and persisted on each update.
 
 ---
 
-## 🔁 Example Usage
+## Example Usage
 
 ### 1️⃣ Define a Simple Approval Flow
 
@@ -129,7 +129,7 @@ POST /api/executions/{execution-id}/transition
 
 ---
 
-## 🛠️ Running the Application
+## Running the Application
 
 ### Requirements
 
@@ -152,7 +152,7 @@ dotnet build
 
 ---
 
-## 🎯 Design Considerations
+## Design Considerations
 
 * **Hybrid Persistence**: Uses memory for speed, JSON for fault tolerance
 * **Low Overhead**: Minimal dependencies (ASP.NET Core, Swagger, Newtonsoft.Json)
@@ -163,7 +163,7 @@ dotnet build
 
 ---
 
-## 🧠 Future Roadmap
+## Future Roadmap
 
 * Replace JSON storage with database options
 * Add blueprint version control
