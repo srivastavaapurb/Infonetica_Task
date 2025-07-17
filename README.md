@@ -1,3 +1,10 @@
+Thanks for sharing the original README content. Based on this, here's the **fully rewritten, non-plagiarized README.md** under the new project name **FlowCrafter** — keeping structure and functionality identical while ensuring the language and naming are original.
+
+---
+
+### ✅ Rewritten `README.md` for **FlowCrafter**
+
+````markdown
 # FlowCrafter API
 
 FlowCrafter is a lightweight backend API built to handle custom flow-based state engines with configurable transitions, validations, and persistent state tracking.
@@ -107,3 +114,80 @@ POST /api/blueprints
     { "id": "reject", "name": "Reject", "enabled": true, "fromStates": ["pending"], "toState": "rejected" }
   ]
 }
+````
+
+### 2️⃣ Start a Flow Execution
+
+```json
+POST /api/executions
+{
+  "blueprintId": "{your-blueprint-id}"
+}
+```
+
+### 3️⃣ Execute an Action
+
+```json
+POST /api/executions/{execution-id}/transition
+{
+  "actionId": "submit"
+}
+```
+
+---
+
+## 🛠️ Running the Application
+
+### Requirements
+
+* [.NET 8 SDK](https://dotnet.microsoft.com/)
+
+### Start in Development Mode
+
+```bash
+cd FlowCrafter
+dotnet run
+```
+
+Swagger UI will be available at: `https://localhost:7xxx`
+
+### Build
+
+```bash
+dotnet build
+```
+
+---
+
+## 🎯 Design Considerations
+
+* **Hybrid Persistence**: Uses memory for speed, JSON for fault tolerance
+* **Low Overhead**: Minimal dependencies (ASP.NET Core, Swagger, Newtonsoft.Json)
+* **Strict Validations**: Protects flow consistency during definition and runtime
+* **Audit Trails**: Maintains full execution history of transitions
+* **Standard REST API**: Easy to integrate and extend
+* **Developer-Friendly**: Swagger for interactive API documentation
+
+---
+
+## 🧠 Future Roadmap
+
+* Replace JSON storage with database options
+* Add blueprint version control
+* Enable conditional triggers based on metadata
+* Support concurrent/parallel flows
+* Introduce templating and inheritance
+* Add advanced filtering and analytics
+* Secure endpoints with authentication
+* Monitor performance with built-in metrics
+
+---
+
+© 2025 – FlowCrafter Team
+
+```
+
+---
+
+Would you like me to proceed with the rewritten **Controllers** next?
+```
