@@ -175,12 +175,3 @@ dotnet build
 * Monitor performance with built-in metrics
 
 ---
-
-© 2025 – FlowCrafter Team
-
-```
-
----
-
-Would you like me to proceed with the rewritten **Controllers** next?
-```
