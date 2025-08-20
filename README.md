@@ -1,6 +1,11 @@
-# FlowCrafter API
+## DS Intern Challenge: Two-Agent Prompt Adherence & Evaluation
 
-FlowCrafter is a lightweight backend API built to handle custom flow-based state engines with configurable transitions, validations, and persistent state tracking.
+This project simulates multi-turn conversations between two bots:
+
+- Agent A: Customer service bot under test (prompt versions v0, v1, v2)
+- Agent J: Proctor bot that drives the conversation and evaluates adherence
+
+It runs ~N conversations, logs turns with latency and tags, computes per-conversation matrices and overall metrics, identifies failure modes, and demonstrates prompt improvements.
 
 ---
 
@@ -129,26 +134,26 @@ POST /api/executions/{execution-id}/transition
 
 ---
 
-## Running the Application
+## Setup
 
-### Requirements
-
-* [.NET 8 SDK](https://dotnet.microsoft.com/)
-
-### Start in Development Mode
+1) Python 3.10+
+2) Install dependencies:
 
 ```bash
-cd FlowCrafter
-dotnet run
+pip install -r requirements.txt
 ```
 
-Swagger UI will be available at: `https://localhost:7xxx`
+3) Configure environment by copying `.env.example` to `.env` and filling values:
 
-### Build
-
-```bash
-dotnet build
+```env
+AZURE_OPENAI_ENDPOINT=https://reasearch-interns.openai.azure.com
+AZURE_OPENAI_API_KEY=YOUR_KEY
+AZURE_OPENAI_DEPLOYMENT=gpt-4o-mini
+AZURE_OPENAI_API_VERSION=2025-01-01-preview
+REQUEST_TIMEOUT_SECONDS=60
 ```
+
+The client matches the provided curl with path `/openai/deployments/{deployment}/chat/completions?api-version=...`.
 
 ---
 
@@ -163,15 +168,29 @@ dotnet build
 
 ---
 
-## Future Roadmap
+## Run Simulations
 
-* Replace JSON storage with database options
-* Add blueprint version control
-* Enable conditional triggers based on metadata
-* Support concurrent/parallel flows
-* Introduce templating and inheritance
-* Add advanced filtering and analytics
-* Secure endpoints with authentication
-* Monitor performance with built-in metrics
+Run v0 (flawed prompt):
+
+```bash
+python run_simulation.py --version v0 --n 20 --max_turns 8 --out runs
+```
+
+Run improved prompts:
+
+```bash
+python run_simulation.py --version v1 --n 20 --max_turns 8 --out runs
+python run_simulation.py --version v2 --n 20 --max_turns 8 --out runs
+```
+
+Outputs are saved under `runs/<version>/`:
+
+- Per-conversation JSON logs (turns with latency and tags)
+- `summary.csv` per version
+- Run metadata with aggregate metrics and top failure modes
+
+## Colab/Notebook
+
+Open `notebooks/DS_Intern_Challenge.ipynb` to run experiments for v0→v1→v2 and visualize metrics.
 
 ---
